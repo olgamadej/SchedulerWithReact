@@ -1,38 +1,228 @@
-.App {
+@import url("https://fonts.googleapis.com/css2?family=Source+Serif+Pro&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato&family=Source+Serif+Pro&display=swap");
+
+/*General CSS*/
+:root {
+  --box-shadow: 0 1px 7px rgba(255, 255, 255, 0.7);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  background-color: rgb(241, 238, 233);
+  color: #224f74;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100%;
+  margin: 0;
+  font-family: "Lato", sans-serif;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+  min-height: 100vh;
+}
+
+.main {
+  display: flex;
+  padding: 0 10%;
+}
+
+.header,
+.left-container,
+.right-container {
+  margin: 1rem;
+}
+
+/*titles/labels*/
+h3 {
+  border-bottom: 1px solid rgb(255, 255, 255);
+  padding-bottom: 10px;
+  margin: 40px 0 10px;
+  font-weight: 300;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/*Header Component*/
+.header {
+  background-image: url("/src/img/zebra.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 5rem;
+  width: 80%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.background {
+  background: linear-gradient(
+    to right,
+    rgba(241, 237, 229, 0.229),
+    rgba(211, 199, 177, 0.5)
+  );
+  box-shadow: 0 1px 7px rgba(255, 255, 255, 0.7);
+  padding: 0.2rem 3rem;
+  border-radius: 5rem;
+  border-bottom: 1px dashed #224f74;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+h2 {
+  letter-spacing: 0px;
+  margin: 0;
+  padding: 0.4rem;
+  color: #224f74;
+  font-family: "Source Serif Pro", serif;
+  font-size: 2.5rem;
+  font-weight: 400;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+.today {
+  border-top: 1px solid #224f74;
+}
+
+.biggerFont {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.italic {
+  font-style: italic;
+  font-size: 1.2rem;
+}
+
+/*Left Side*/
+.left-container {
+  min-width: 30vw;
+}
+
+/*Right Side */
+.right-container {
+  min-width: 40vw;
+  padding: 1rem;
+  border: 1px solid rgb(34, 79, 116);
+  border-radius: 20px;
+}
+
+/*Footer*/
+footer {
+  background: rgb(34, 79, 116);
+  color: #eeeded;
+  margin-top: auto;
+  margin-left: 0;
+  padding: 1rem;
+  width: 100%;
+  text-align: center;
+}
+
+.btn {
+  background-color: rgba(34, 79, 116, 0.2);
+  cursor: pointer;
+  box-shadow: var(--box-shadow);
+  color: rgb(34, 79, 116);
+  border: 0;
+  border-radius: 1rem;
+  display: block;
+  font-size: 16px;
+  margin: 10px 0 30px;
+  padding: 10px;
+  width: 100%;
+  transition: all ease-in-out 0.4s;
+}
+
+.btn:hover {
+  background: linear-gradient(
+    to right,
+    rgba(241, 237, 229, 0.829),
+    rgba(211, 199, 177, 0.5)
+  );
+  border-bottom: 1px dashed rgb(34, 79, 116);
+  transition: all ease-in-out 0.4s;
+}
+
+.btn:focus,
+.delete-btn:focus {
+  box-shadow: 0 1px 7px rgba(255, 255, 255, 0.9);
+  transition: all ease-in-out 0.4s;
+}
+
+label {
+  display: inline-block;
+  margin: 10px 10px;
+}
+
+input[type="text"],
+input[type="number"] {
+  border: 1px solid #dedede;
+  border-radius: 15px;
+  display: block;
+  font-size: 16px;
+  padding: 10px;
+  width: 100%;
+}
+
+.list {
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 40px;
+}
+
+.list li {
+  background-color: #fff;
+  box-shadow: var(--box-shadow);
+  color: #333;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  padding: 10px;
+  margin: 0px 0px;
+}
+
+li.morning {
+  background-color: rgb(185, 219, 247);
+}
+
+li.evening {
+  background-color: rgb(173, 178, 182);
+}
+
+.delete-btn {
+  cursor: pointer;
+  background-color: rgb(34, 79, 116);
+  border: 0;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 14px;
+  line-height: 14px;
+  padding: 4px 5px;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(-100%, -50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.list li:hover .delete-btn {
+  opacity: 1;
+}
+
+/*Media Queries*/
+@media screen and (max-width: 700px) {
+  .main {
+    display: flex;
+    flex-direction: column;
   }
 }
